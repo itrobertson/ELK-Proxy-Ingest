@@ -1,0 +1,45 @@
+#README:
+#Install ELK
+#Harden Server
+#Install certbot and NGINX, issue cert
+
+System Files Modifyed:
+/etc/elasticserarch/
+/etc/kibana/
+/etc/nginx/nginx.conf
+/etc/ssh/sshd_config <= allow remote login using passwords
+/etc/ansible/roles/opendistro_standalone_installation
+
+
+1. Install Elasticsearch Open Distro
+2. Install Kibana
+3. Harden Server
+4. Install NGINX
+5. Install certbot in order to issue private network SSL/https port 443 encryption.
+
+
+OPTIONAL:
+-wipe.sh :: To remove all previous keys, history and customizations to easily share with others.
+-harden.sh :: enabled by default.
+
+ELASTICSEARCH:
+
+File type		Location
+Elasticsearch home	/usr/share/elasticsearch/
+Configuration files	/etc/elasticsearch
+Environment variables	/etc/sysconfig/elasticsearch
+Logs			/var/log/elasticsearch
+Shard data		/var/lib/elasticsearch
+
+KIBANA:
+NGINX:
+
+
+ANSIBLE:
+#Source: https://github.com/saravanan30erd/opendistro_standalone_installation
+# Deploy with ansible playbook - run the playbook as root
+/etc/ansible/roles/opendistro_standalone_installation
+ansible-playbook -i inventories/opendistro/hosts opendistro.yml
+
+
+###
