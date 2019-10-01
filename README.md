@@ -35,34 +35,11 @@ Only available Fully open source, and fully deployable Elastic stack solutions a
 /etc/nginx/nginx.conf
 /etc/ssh/sshd_config <= allow remote login using passwords
 /etc/ansible/roles/opendistro_standalone_installation
-
-git init;git add .;git commit -m "First commit";
-
-19 files changed, 513 insertions(+)
-
- create mode 100644 .bash_history
- create mode 100644 .bash_logout
- create mode 100644 .bash_profile
- create mode 100644 .bashrc
- create mode 100644 .ssh/authorized_keys
- create mode 100644 README
- create mode 100755 certgen
- create mode 100755 curl.js
- create mode 100644 elasticinit.curl
- create mode 100644 elasticsearch.yml.orig
- create mode 100755 harden.sh
- create mode 100644 jvm.options
- create mode 100644 license
- create mode 100644 nginx.conf
- create mode 100755 nginx.sh
- create mode 100644 sanvada
- create mode 100755 startinit.sh
- create mode 100644 usefulcommands.txt
- create mode 100644 wipe.sh
-
+//ADDing more later.
 
 # OPTIONAL:
 -wipe.sh :: To remove all previous keys, history and customizations to easily share with others.
+
 -harden.sh :: enabled by default.
 
 # ELASTICSEARCH:
