@@ -35,8 +35,11 @@ Only available Fully open source, and fully deployable Elastic stack solutions a
 /etc/nginx/nginx.conf
 /etc/ssh/sshd_config <= allow remote login using passwords
 /etc/ansible/roles/opendistro_standalone_installation
+
 git init;git add .;git commit -m "First commit";
+
 19 files changed, 513 insertions(+)
+
  create mode 100644 .bash_history
  create mode 100644 .bash_logout
  create mode 100644 .bash_profile
