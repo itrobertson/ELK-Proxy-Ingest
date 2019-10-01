@@ -19,10 +19,15 @@ A standalone pre-production deployable one-node ELK (Opensource) cluster for rap
 
 # Benefits:
 Platform Agnostic - Because this is built from RPMs and system utils, the source code will work anywhere CentOS will run.
-Open Source – Apache License 2.0
+
+Open Source – Apache License 2.0.
+
 All Data can be encrypted at rest and in transit, automatically.
+
 Auditing provides for SecOps continuity.
+
 Proxy – Mitigate Risk and increase Compliance using our ELK-A Stack.
+
 
 # Features & capabilities
 Additional security hardening, Wipe, audit, and clean scripts.
