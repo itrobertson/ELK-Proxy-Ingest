@@ -1,5 +1,7 @@
 #!/bin/bash
 sudo systemctl restart firewalld; 
+semanage port -a -t http_port_t -p tcp 5601
+
 sudo firewall-cmd --add-service=http;
 sudo firewall-cmd --add-service=https;
 sudo firewall-cmd --runtime-to-permanent;

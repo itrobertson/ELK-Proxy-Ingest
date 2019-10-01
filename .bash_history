@@ -1,2 +1,0 @@
-history
-sudo -s
