@@ -1,0 +1,9 @@
+---
+- name: Install git and vim rpms
+  yum:
+    name:
+      - git
+      - vim
+      - nano
+      - net-tools
+  become: true

@@ -1,0 +1,45 @@
+---
+#
+# Playbook to install the ELK or EFK stack
+#
+# versions:
+#  - 2.4 (git branch 2.4)
+#  - 5.6 (git branch 5.6)
+#  - 6.5 (git branch master)
+#
+
+- hosts: elk
+  remote_user: "{{ ansible_system_user }}"
+  vars_files:
+    - group_vars/all.yml
+  roles:
+    - role: sadsfae.elasticsearch
+      # not tested
+    - role: sadsfae.fluentd
+      when: (logging_backend == 'fluentd')
+    - role: sadsfae.logstash
+      when: ((logging_backend is none) or (logging_backend == 'logstash'))
+    - role: sadsfae.nginx
+      when: (apache_reverse_proxy is none)
+      # not tested
+    - role: sadsfae.apache
+      when: apache_reverse_proxy|bool
+      # not tested
+    - role: sadsfae.curator
+      when: install_curator_tool|bool
+    - role: sadsfae.kibana
+    - role: sanvada.elk-configure
+    - role: geerlingguy.certbot
+      become: yes
+#      vars:
+#        certbot_create_if_missing: true
+#        certbot_create_method: standalone
+#        certbot_admin_email: miks2u@kwyk.net
+#        certbot_certs:
+#          - email: miks2u@kwyk.net
+#            domains:
+#              - kwyk.net
+##    - { role: sadsfae.xpack, when: ((install_elasticsearch_xpack|bool) or (install_kibana_xpack|bool) or (install_logstash_xpack|bool)) }
+    - role: sadsfae.firewall
+      when: manage_firewall|bool
+#    - { role: sadsfae.instructions }

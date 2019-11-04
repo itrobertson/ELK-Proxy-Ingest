@@ -1,0 +1,42 @@
+{
+    "variables" : {
+        "region" : "us-east-1"
+    },
+    "builders" : [
+        {
+            "type" : "amazon-ebs",
+            "profile" : "default",
+            "region" : "{{user `region`}}",
+            "instance_type" : "t2.medium",
+            "source_ami" : "ami-0e4bba886a574c2d8",
+            "ssh_username" : "centos",
+            "ami_name" : "Sanvada-ELK-Proxy-Ingest",
+            "ami_description" : "Sanvada standalone single node ELK cluster",
+            "run_tags" : {
+                "Name" : "packer-builder-centos-elk",
+                "Tool" : "Packer",
+                "Author" : "mstankavich"
+            }
+        }
+    ],
+    "provisioners" : [
+        {
+            "type": "file",
+            "source": "../",
+            "destination": "/tmp/sanvada-elk"
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo mv /tmp/sanvada-elk/ansible /etc",
+                "sudo mv /tmp/sanvada-elk /opt",
+                "yum install -y epel-release && yum install -y ansible"
+            ]
+        },
+        {
+            "type": "ansible-local",
+            "playbook_file": "/etc/ansible/sanvada-elk.yml",
+            "inventory_groups": ["elk"]
+        }
+    ]
+}
